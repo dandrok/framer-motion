@@ -1,33 +1,41 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 
 import styles from './Box.module.css'
 
 const Box = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  }
+
+  const item = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+  }
+
   return (
-    <div>
-      <div></div>
-      <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-        BUTTON
-      </motion.button>
-
-      <motion.div
-        drag
-        dragConstraints={{
-          top: -50,
-          left: -50,
-          right: 50,
-          bottom: 50,
-        }}
-      ></motion.div>
-
-      <motion.div
-        animate={{
-          scale: [1, 2, 2, 1, 1],
-          rotate: [0, 0, 270, 270, 0],
-          borderRadius: ['20%', '20%', '50%', '50%', '20%'],
-        }}
-      ></motion.div>
-    </div>
+    <section>
+      <motion.div variants={container} initial='hidden' animate='show'>
+        <motion.div
+          variants={item}
+          className={styles.box}
+          // animate={{ rotate: 360 }}
+          // transition={{ duration: 2 }}
+        />
+        <motion.div
+          className={styles.box}
+          variants={item}
+          // animate={{ rotate: 360 }}
+          // transition={{ duration: 2 }}
+        />
+      </motion.div>
+    </section>
   )
 }
 

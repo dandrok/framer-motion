@@ -1,11 +1,5 @@
-div {
+.box {
   height: 100px;
   width: 100px;
   background: red;
-}
-
-.button {
-  width: 200px;
-  height: 100px;
-  background-color: azure;
 }
