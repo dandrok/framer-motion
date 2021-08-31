@@ -19,6 +19,17 @@ const Box = () => {
     show: { opacity: 1 },
   }
 
+  const animationOne = {
+    start: {
+      animate: {
+        rotate: 360,
+      },
+      transition: {
+        duration: 2,
+      },
+    },
+  }
+
   return (
     <section>
       <motion.div variants={container} initial='hidden' animate='show'>
@@ -34,7 +45,58 @@ const Box = () => {
           // animate={{ rotate: 360 }}
           // transition={{ duration: 2 }}
         />
+        <motion.div
+          className={styles.box}
+          variants={item}
+          // animate={{ rotate: 360 }}
+          // transition={{ duration: 2 }}
+        />
+        <motion.div
+          className={styles.box}
+          variants={item}
+          // animate={{ rotate: 360 }}
+          // transition={{ duration: 2 }}
+        />
+        <motion.div
+          className={styles.box}
+          variants={item}
+          // animate={{ rotate: 360 }}
+          // transition={{ duration: 2 }}
+        />
       </motion.div>
+
+      <div style={{ display: 'flex' }}>
+        <motion.div
+          className={styles.box}
+          animate={{ rotate: 180 }}
+          transition={{ from: 90, duration: 3 }}
+        />
+        <motion.div
+          className={styles.box}
+          animate={{ scale: [0, 1, 0.5, 1] }}
+          transition={{ times: [0, 0.1, 0.9, 1] }}
+        />
+        <motion.div
+          className={styles.box}
+          animate={{ rotate: 180 }}
+          transition={{ type: 'spring' }}
+        />
+        <motion.div
+          className={styles.box}
+          animate={{ rotate: 180 }}
+          transition={{ type: 'spring', stiffness: 50 }}
+        />
+        <motion.div
+          className={styles.box}
+          animate={{ rotate: 180 }}
+          transition={{ type: 'spring', velocity: 2 }}
+        />
+        <motion.div
+          className={styles.box}
+          animate={{ rotate: 180 }}
+          transition={{ type: 'spring', restSpeed: 0.5 }}
+        />
+      </div>
     </section>
   )
 }
