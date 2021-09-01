@@ -1,9 +1,9 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import styles from './Box.module.css'
 
-const Box = () => {
+const Box = ({ isVisible }) => {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -97,6 +97,16 @@ const Box = () => {
           transition={{ type: 'spring', restSpeed: 0.5 }}
         />
       </div>
+      <AnimatePresence>
+        {isVisible || (
+          <motion.div
+            className={styles.box}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
+      </AnimatePresence>
     </section>
   )
 }
